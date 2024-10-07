@@ -42,7 +42,7 @@ router.put('/:id', validateUserId, validateUser, (req, res, next) => {
   // this needs a middleware to verify user id
   // and another middleware to check that the request body is valid
   User.update(req.params.id, { name: req.name })
-    .then(rowsChanged => {
+    .then(() => {
       return User.getById(req.params.id)
     })
     .then(user => {
